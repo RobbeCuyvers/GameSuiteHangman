@@ -34,6 +34,8 @@ public class Speler {
 		
 	}
 	
+	
+	@Override
 	public boolean equals(Object object){
 		if (object instanceof Speler){
 			Speler s = (Speler) object;
@@ -43,6 +45,7 @@ public class Speler {
 		return false;
 	}
 	
+	@Override
 	public String toString(){
 		return this.naam + " score : " + this.score;
 	}
