@@ -12,7 +12,7 @@ public class Cirkel {
 	
 	public void setMiddelpunt(Punt middelpunt){
 		if(middelpunt== null){
-			throw new NullPointerException("Middelpunt mag niet null zijn.");
+			throw new DomainException("Middelpunt mag niet null zijn.");
 		}
 		
 		this.middelpunt = middelpunt;
@@ -28,7 +28,7 @@ public class Cirkel {
 	
 	private void setRadius(int radius) {
 		if(radius <= 0){
-			throw new IllegalArgumentException("De straal moet strikt positief zijn.");
+			throw new DomainException("De straal moet strikt positief zijn.");
 		}
 		this.radius = radius;
 	}
@@ -47,11 +47,9 @@ public class Cirkel {
 	}
 	
 	public boolean equals(Object o){
-		if(o == null){
-			throw new IllegalArgumentException("equals to null.");
-		}
+		
 		boolean gelijk = false;
-		if(o instanceof Cirkel){
+		if(o!= null && o instanceof Cirkel){
 			Cirkel c = (Cirkel) o;
 			
 			if(this.radius == c.getRadius()&&this.middelpunt == c.getMiddelpunt()){
