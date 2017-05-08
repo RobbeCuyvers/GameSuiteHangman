@@ -30,6 +30,11 @@ public class LijnStukTest {
 		new LijnStuk(punt1, null);
 	}
 	
+	@Test (expected = DomainException.class)
+	public void LijnStuk_Moet_exception_gooien_Als_beginpunt_zelfde_als_eindpunt() {
+		new LijnStuk(punt1, zelfdeAlsPunt1);
+	}
+	
 	@Test
 	public void equals_moet_true_teruggeven_als_begin_en_eindpunt_gelijk_zijn(){
 		LijnStuk lijnStuk = new LijnStuk(punt1, punt2);
@@ -41,6 +46,13 @@ public class LijnStukTest {
 	public void equals_moet_false_teruggeven_als_parameter_null(){
 		LijnStuk lijnStuk = new LijnStuk(punt1, punt2);
 		assertFalse(lijnStuk.equals(null));
+	}
+	
+	@Test
+	public void Equals_Moet_false_teruggeven_Als_LijnStuk1_verschilt_van_LijnStuk2() {
+		LijnStuk lijnstuk1 = new LijnStuk(punt1, punt2);
+		LijnStuk lijnstuk2 = new LijnStuk(new Punt(50, 70), new Punt(80,90));
+		assertFalse(lijnstuk1.equals(lijnstuk2));
 	}
 }
 	
