@@ -8,7 +8,7 @@ public class Tekening {
 	private List<Vorm> vormen;
 	
 	public Tekening(String naam){
-		this.naam = naam;
+		setNaam(naam);
 		vormen = new ArrayList<>();	
 	}
 
@@ -63,6 +63,10 @@ public class Tekening {
 		return false;	
 	}
 	
+	public List<Vorm> getAlleVormern() {
+		return vormen;
+	}
+	
 	public String toString(){
 		String res = "Tekening met naam " + getNaam() + " bestaat uit " + getAantalVormen() + " vormen: \n";
 		for (Vorm vorm : vormen) {
@@ -73,12 +77,23 @@ public class Tekening {
 	
 	@Override
 	public boolean equals(Object object){
-		if (object instanceof Tekening){
-			Tekening s = (Tekening) object;
-			if (this.getNaam().equals(s.getNaam())) {
-				return true;
+		if (object == null) {
+			return false;
+		}
+		else if (object instanceof Tekening){
+			Tekening tekening = (Tekening) object;
+			List<Vorm> vormenTekening1 = tekening.getAlleVormern();
+			if (vormenTekening1.size() != this.getAantalVormen()) {
+				return false;
+			}
+			else {
+				for (Vorm vorm : vormen) {
+					if (!vormenTekening1.contains(vorm)) {
+						return false;
+					}
+				}
 			}
 		}
-		return false;
+		return true;
 	}
 }

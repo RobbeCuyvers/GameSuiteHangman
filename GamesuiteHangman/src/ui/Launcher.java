@@ -1,7 +1,10 @@
 package ui;
 
 import javax.swing.JOptionPane;
-import domain.*;
+
+import domain.DomainException;
+import domain.Speler;
+import domain.WoordenLijst;
 
 public class Launcher {
 
@@ -20,14 +23,12 @@ public class Launcher {
 		Object keuze = JOptionPane.showInputDialog(null, "Welke game? ", "input", JOptionPane.INFORMATION_MESSAGE, null, games, null);
 
 		if (keuze.equals("Pictionary")) {
-			PictionaryUi.toonMenu();
+			PictionaryUi.play();
 		}
-
 		else if (keuze.equals("Hangman")) {
 			WoordenLijst woordenlijst = null;
 			HangManUi hangman = new HangManUi(speler, woordenlijst);
 			hangman.play();
 		}
-
 	}
 }
