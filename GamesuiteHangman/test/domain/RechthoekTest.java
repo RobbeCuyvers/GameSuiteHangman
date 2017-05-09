@@ -10,6 +10,7 @@ public class RechthoekTest {
 	private Punt linkerBovenhoek;
 	private int breedte, hoogte;
 	private Rechthoek rechthoek;
+	private Omhullende omhullende;
 
 	@Before
 	public void setUp() {
@@ -17,6 +18,7 @@ public class RechthoekTest {
 		breedte = 20;
 		hoogte = 40;
 		rechthoek = new Rechthoek(linkerBovenhoek,breedte, hoogte);
+		omhullende = new Omhullende(linkerBovenhoek, breedte, hoogte);
 	}
 
 	@Test
@@ -81,5 +83,10 @@ public class RechthoekTest {
 	@Test
 	public void equals_moet_false_teruggeven_als_parameter_null(){
 		assertFalse(rechthoek.equals(null));
+	}
+	
+	@Test
+	public void getOmhullende_geeft_correcte_omhullende(){
+		assertEquals(omhullende, rechthoek.getOmhullende());
 	}
 }
