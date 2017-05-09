@@ -105,7 +105,6 @@ public class Driehoek extends Vorm{
 		Omhullende o = new Omhullende(p, maxx-minx, maxy-miny);
 		return o;
 	}
-
 	
 	
 
