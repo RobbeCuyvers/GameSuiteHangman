@@ -46,7 +46,7 @@ public class Driehoek extends Vorm //implements Drawable
 	
 	
 	public Punt getHoekPunt1(){
-		return this.hoekpunt1;
+		return hoekpunt1;
 	}
 	
 	public Punt getHoekPunt2() {

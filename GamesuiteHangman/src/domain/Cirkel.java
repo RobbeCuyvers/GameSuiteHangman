@@ -41,7 +41,7 @@ public class Cirkel extends Vorm //implements Drawable
 	public String toString(){
 		 String output = "Cirkel: ";
 		 output += "middelPunt: "+ middelpunt.toString();
-		 output += " - straal: "+ radius+" -\n"+this.getOmhullende().toString(); 
+		 output += " - straal: "+ radius; 
 		 return output;
 		
 		
