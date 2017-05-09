@@ -49,5 +49,21 @@ public class LijnStuk extends Vorm{
 		String res = "Lijn: startpunt: " + getStartPunt() + " - eindpunt: " + getEindPunt();
 		return res;
 	}
+	
+	public Omhullende getOmhullende(){
+		
+		int x1 = start.getX();
+		int x2 = einde.getX();
+		
+		int y1 = start.getY();
+		int y2 = einde.getY();
+		
+		Punt linkerBoven = new Punt(Math.min(x1,x2),Math.min(y1,y2));
+		
+		Omhullende omhullend = new Omhullende(linkerBoven, Math.abs(x1-x2), Math.abs(y1-y2));
+		
+		return omhullend;
+		
+	}
 
 }

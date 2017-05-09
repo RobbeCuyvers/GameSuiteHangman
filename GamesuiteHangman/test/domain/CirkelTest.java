@@ -7,7 +7,7 @@ import org.junit.Test;
 public class CirkelTest {
 	
 	
-	private Punt middelpunt1 = new Punt(10, 20);
+	private Punt middelpunt1 = new Punt(10, 10);
 	private Punt middelpunt2 = new Punt(50, 20);
 
 	
@@ -72,6 +72,14 @@ public class CirkelTest {
 		Cirkel cirkel = new Cirkel(middelpunt1,5);
 		Cirkel cirkel2 = new Cirkel(middelpunt1,10);
 		assertEquals(false, cirkel.equals(cirkel2));
+	}
+	
+	@Test
+	public void Omhullende_returned_correcte_omhullende(){
+		Cirkel cirkel = new Cirkel(middelpunt1,5);
+		Omhullende o1 = cirkel.getOmhullende();
+		Omhullende o2 = new Omhullende(new Punt(5,5), 10, 10);
+		assertEquals(o1, o2);
 	}
 	
 	

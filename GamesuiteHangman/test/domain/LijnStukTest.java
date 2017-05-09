@@ -60,6 +60,16 @@ public class LijnStukTest {
 		LijnStuk lijnstuk1 = new LijnStuk(punt1, punt2);
 		assertEquals("Lijn: startpunt: (10, 20) - eindpunt: (190, 30)", lijnstuk1);
 	}*/
+	
+	@Test
+	public void getOmhullende_returned_correcte_omhullende(){
+		
+		LijnStuk lijnstuk = new LijnStuk(punt1, punt2);
+		Omhullende o = lijnstuk.getOmhullende();
+		
+		Omhullende o2 = new Omhullende(punt1, 180, 10);
+		assertEquals(o2, o);
+	}
 	 
 }
 	

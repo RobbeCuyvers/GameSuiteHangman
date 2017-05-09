@@ -59,6 +59,16 @@ public class Cirkel extends Vorm{
 		}
 		return gelijk;
 	}
+
+
+	@Override
+	public Omhullende getOmhullende() {
+		
+		Punt linkerBoven = new Punt(middelpunt.getX()-radius, middelpunt.getY()-radius);
+		Omhullende o = new Omhullende(linkerBoven, 2*radius, 2*radius);
+		
+		return o;
+	}
 	
 	
 
