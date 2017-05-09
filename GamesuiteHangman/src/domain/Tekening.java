@@ -1,22 +1,26 @@
 package domain;
 
 import java.util.*;
-import domain.Omhullende;
 
 public class Tekening {
 	private String naam;
-	private static final int MIN_X = 0, MIN_Y = 0,MAX_X = 399 ,MAX_Y = 399;
-	private List vormen;
+	private static final int MIN_X = 0, MIN_Y = 0, MAX_X = 399, MAX_Y = 399;
+	private List<Vorm> vormen;
 	
 	public Tekening(String naam){
-		if (naam == null || naam.trim().isEmpty()) throw new IllegalArgumentException("naam mag niet leeg zijn.");
 		this.naam = naam;
-		vormen = new ArrayList();
-		
+		vormen = new ArrayList<>();	
 	}
 
 	public String getNaam() {
 		return naam;
+	}
+	
+	public void setNaam(String naam) {
+		if (naam == null || naam.trim().isEmpty()) {
+			throw new DomainException("naam mag niet leeg zijn.");
+		}
+		this.naam = naam;
 	}
 
 	public int getVorm(int vorm) {
@@ -24,47 +28,55 @@ public class Tekening {
 	}
 	
 	public void voegToe(Vorm vorm){
-		Tekening tekening1 = new Tekening("vorm");
-		//if (MAX_X - MIN_X == Omhullende)
-		
-	}
-	
-	public int getAantalVormen(){
-		int aantalvormen = 0;
-		for (int i = 0; vormen.size() > i; i++ ){
-			aantalvormen =+ 1;
+		if (vorm == null) {
+			throw new DomainException("Geen geldige vorm");
 		}
-			
-		return aantalvormen;
+		else if (vorm.getOmhullende().getMaximumX() > MAX_X && vorm.getOmhullende().getMaximumY() > MAX_Y) {
+			throw new DomainException("De vorm past niet in de tekening");
+		}
+		vormen.add(vorm);	
 	}
 	
-	public void verwijder(Vorm vorm){
-		
+	public int getAantalVormen(){	
+		return vormen.size();
 	}
 	
-	public boolean bevat(Vorm vorm){
-		return true;
-		
+	public void verwijder(Vorm vormTeVerwijderen){
+		for (int i = 0; i < vormen.size(); i++) {
+			if (vormen.get(i).equals(vormTeVerwijderen)) {
+				vormen.remove(i);
+			}
+		}
+	}
+	
+	public boolean bevat(Vorm vorm2){
+		if (vorm2 == null) {
+			throw new DomainException("Ongeldige vorm");
+		}
+		for (Vorm vorm : vormen) {
+			if (vorm.equals(vorm2)) {
+				return true;
+			}
+		}
+		return false;	
 	}
 	
 	public String toString(){
-		return null;
+		String res = "Tekening met naam " + getNaam() + " bestaat uit " + getAantalVormen() + " vormen: \n";
+		for (Vorm vorm : vormen) {
+			res += vorm;
+		}
+		return res;
 	}
-	
-	
 	
 	@Override
 	public boolean equals(Object object){
 		if (object instanceof Tekening){
 			Tekening s = (Tekening) object;
-			if ()
+			if (this.getNaam().equals(s.getNaam())) {
 				return true;
+			}
 		}
 		return false;
 	}
-	
-	
-	
-	
-
 }
