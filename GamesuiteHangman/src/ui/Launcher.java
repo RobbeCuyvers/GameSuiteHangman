@@ -9,21 +9,45 @@ public class Launcher {
 	public static void main(String[] args) {
 		String naam = JOptionPane.showInputDialog("Welkom! \nHoe heet je?");
 		Speler speler =null;
+		boolean lus = true;
+		do {
+			
 		try {
 		 speler = new Speler(naam);
+		 lus = false;
 		}
 		catch (DomainException e){
 			JOptionPane.showMessageDialog(null, e.getMessage(),null, JOptionPane.ERROR_MESSAGE);
 			
 		}
+		}
+		while(lus);
+		lus = true;
 		
 		JOptionPane.showMessageDialog(null, "... zal binnekort spelen", speler.getNaam(), JOptionPane.INFORMATION_MESSAGE);
 		
 		Object[] shapes = {"Cirkel", "Rechthoek", "Lijnstuk"};
 		Object keuze = JOptionPane.showInputDialog(null, "Wat wilt u tekenen", "input", JOptionPane.INFORMATION_MESSAGE, null, shapes, null);
 		if (keuze.equals("Cirkel")){
-			
 		
+		do {
+			
+			try {
+				lus = false;
+			}
+			catch (DomainException e){
+				JOptionPane.showMessageDialog(null, e.getMessage(),null, JOptionPane.ERROR_MESSAGE);
+				
+			}
+			catch (NumberFormatException e){
+				JOptionPane.showMessageDialog(null, "Gelieve een geldig getal in te vullen.",null, JOptionPane.ERROR_MESSAGE);
+			}
+			}
+			while(lus);
+			lus = true;
+			
+			}
+		if (keuze.equals("Cirkel")){
 		
 		int x = Integer.parseInt(JOptionPane.showInputDialog("x-coordinaat van het middelpunt:"));
 		int y = Integer.parseInt(JOptionPane.showInputDialog("y-coordinaat van het middelpunt:"));
@@ -45,6 +69,7 @@ public class Launcher {
 			JOptionPane.showMessageDialog(null, "U heeft een correcte rechthoek aangemaakt: "+ rechthoek.toString(), speler.getNaam(), JOptionPane.INFORMATION_MESSAGE);
 			
 		}
+
 		if (keuze.equals("Lijnstuk")){
 			int x = Integer.parseInt(JOptionPane.showInputDialog("punt1:x-coordinaat?"));
 			int y = Integer.parseInt(JOptionPane.showInputDialog("punt1:y-coordinaat?"));
@@ -56,6 +81,6 @@ public class Launcher {
 			JOptionPane.showMessageDialog(null, "U heeft een correct lijstuk aangemaakt:" +lijnstuk1);
 		}
 	}
-	
 
 }
+
