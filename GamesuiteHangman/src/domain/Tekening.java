@@ -33,6 +33,7 @@ public class Tekening {
 		int aantalvormen = 0;
 		for (int i = 0; vormen.size() > i; i++ ){
 			aantalvormen =+ 1;
+			
 		}
 			
 		return aantalvormen;
