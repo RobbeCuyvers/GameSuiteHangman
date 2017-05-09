@@ -36,6 +36,10 @@ public class Rechthoek extends Vorm{
 		if (linkerbovenhoek == null) throw new DomainException("mag niet null zijn");
 		this.linkerbovenhoek = linkerbovenhoek;
 	}
+	
+	public Omhullende getOmhullende(){
+		return new Omhullende(this.linkerbovenhoek, this.breedte, this.hoogte);
+	}
 
 	@Override
 	public String toString() {
