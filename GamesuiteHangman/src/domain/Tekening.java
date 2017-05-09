@@ -31,7 +31,8 @@ public class Tekening {
 		if (vorm == null) {
 			throw new DomainException("Geen geldige vorm");
 		}
-		else if (vorm.getOmhullende().getMaximumX() > MAX_X && vorm.getOmhullende().getMaximumY() > MAX_Y) {
+		else if (vorm.getOmhullende().getMaximumX() > MAX_X && vorm.getOmhullende().getMaximumY() > MAX_Y &&
+				vorm.getOmhullende().getMinimumX() < MIN_X && vorm.getOmhullende().getMinimumY() < MIN_Y) {
 			throw new DomainException("De vorm past niet in de tekening");
 		}
 		vormen.add(vorm);	
