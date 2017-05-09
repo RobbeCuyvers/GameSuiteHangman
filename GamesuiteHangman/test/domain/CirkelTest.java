@@ -32,17 +32,17 @@ public class CirkelTest {
 	
 	@Test(expected=DomainException.class)
 	public void Cirkel_moet_Exception_gooien_als_middelpunt_is_null(){
-		Cirkel cirkel = new Cirkel(null,5);
+		new Cirkel(null,5);
 	}
 	
 	@Test(expected=DomainException.class)
 	public void Cirkel_moet_Exception_gooien_als_straal_kleiner_dan_0(){
-		Cirkel cirkel = new Cirkel(middelpunt1,-5);
+		new Cirkel(middelpunt1,-5);
 	}
 	
 	@Test(expected=DomainException.class)
 	public void Cirkel_moet_Exception_gooien_als_straal_is_gelijk_aan_0(){
-		Cirkel cirkel = new Cirkel(middelpunt1,0);
+		new Cirkel(middelpunt1,0);
 	}
 	
 	
