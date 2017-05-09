@@ -16,7 +16,7 @@ public class LijnStuk {
 		if (einde == null) {
 			throw new DomainException("Ongeldig eindpunt");
 		}
-		if (start == einde) {
+		if (start.equals(einde)) {
 			throw new DomainException("Start- en eindpunt mogen niet gelijk zijn");
 		}
 		this.start = start;
@@ -35,8 +35,8 @@ public class LijnStuk {
 	public boolean equals(Object o) {
 		if (o instanceof LijnStuk) {
 			LijnStuk lijnstuk = (LijnStuk) o;
-			if ((this.getStartPunt() == lijnstuk.getStartPunt() && this.getEindPunt() == lijnstuk.getEindPunt()) ||
-				(this.getStartPunt() == lijnstuk.getEindPunt() && this.getEindPunt() == lijnstuk.getStartPunt())){
+			if ((this.getStartPunt().equals(lijnstuk.getStartPunt()) && this.getEindPunt().equals(lijnstuk.getEindPunt())) ||
+				(this.getStartPunt().equals(lijnstuk.getEindPunt()) && this.getEindPunt().equals(lijnstuk.getStartPunt()))){
 				
 				return true;
 			}

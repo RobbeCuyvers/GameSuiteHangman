@@ -19,7 +19,7 @@ public class Launcher {
 		
 		JOptionPane.showMessageDialog(null, "... zal binnekort spelen", speler.getNaam(), JOptionPane.INFORMATION_MESSAGE);
 		
-		Object[] shapes = {"Cirkel", "Rechthoek"};
+		Object[] shapes = {"Cirkel", "Rechthoek", "Lijnstuk"};
 		Object keuze = JOptionPane.showInputDialog(null, "Wat wilt u tekenen", "input", JOptionPane.INFORMATION_MESSAGE, null, shapes, null);
 		if (keuze.equals("Cirkel")){
 			
@@ -44,6 +44,16 @@ public class Launcher {
 			
 			JOptionPane.showMessageDialog(null, "U heeft een correcte rechthoek aangemaakt: "+ rechthoek.toString(), speler.getNaam(), JOptionPane.INFORMATION_MESSAGE);
 			
+		}
+		if (keuze.equals("Lijnstuk")){
+			int x = Integer.parseInt(JOptionPane.showInputDialog("punt1:x-coordinaat?"));
+			int y = Integer.parseInt(JOptionPane.showInputDialog("punt1:y-coordinaat?"));
+			Punt punt1= new Punt(x,y);
+			int x2 = Integer.parseInt(JOptionPane.showInputDialog("punt2:x-coordinaat?"));
+			int y2 = Integer.parseInt(JOptionPane.showInputDialog("punt2:y-coordinaat?"));
+			Punt punt2= new Punt(x2,y2);
+			LijnStuk lijnstuk1 = new LijnStuk(punt1,punt2);
+			JOptionPane.showMessageDialog(null, "U heeft een correct lijstuk aangemaakt:" +lijnstuk1);
 		}
 	}
 	
