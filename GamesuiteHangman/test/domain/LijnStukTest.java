@@ -33,6 +33,7 @@ public class LijnStukTest {
 	@Test (expected = DomainException.class)
 	public void LijnStuk_Moet_exception_gooien_Als_beginpunt_zelfde_als_eindpunt() {
 		new LijnStuk(punt1, zelfdeAlsPunt1);
+		
 	}
 	
 	@Test
@@ -54,5 +55,11 @@ public class LijnStukTest {
 		LijnStuk lijnstuk2 = new LijnStuk(new Punt(50, 70), new Punt(80,90));
 		assertFalse(lijnstuk1.equals(lijnstuk2));
 	}
+	/*@Test
+	public void to_String_heeft_vast_structuur(){
+		LijnStuk lijnstuk1 = new LijnStuk(punt1, punt2);
+		assertEquals("Lijn: startpunt: (10, 20) - eindpunt: (190, 30)", lijnstuk1);
+	}*/
+	 
 }
 	
