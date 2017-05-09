@@ -1,7 +1,8 @@
 package domain;
 
 
-public class Driehoek extends Vorm{
+public class Driehoek extends Vorm //implements Drawable
+{
 	
 	private Punt hoekpunt1;
 	private Punt hoekpunt2;

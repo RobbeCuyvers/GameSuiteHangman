@@ -40,6 +40,7 @@ public class Tekening {
 	
 	public int getAantalVormen(){	
 		return vormen.size();
+		
 	}
 	
 	public void verwijder(Vorm vormTeVerwijderen){
