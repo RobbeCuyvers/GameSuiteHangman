@@ -1,6 +1,6 @@
 package domain;
 
-import java.util.List;
+import java.util.*;
 
 public class Tekening {
 	private String naam;
@@ -10,7 +10,11 @@ public class Tekening {
 	public Tekening(String naam){
 		if (naam == null || naam.trim().isEmpty()) throw new DomainException("naam mag niet leeg zijn.");
 		this.naam = naam;
+		vormen = new ArrayList();
+		
+		
 	}
+	
 	
 
 }
