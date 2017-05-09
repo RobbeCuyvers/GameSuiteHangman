@@ -84,9 +84,26 @@ public class Driehoek extends Vorm{
 	public String toString(){
 		
 		String output = "Driehoek: ";
-		output+= "hoekpunt1: "+hoekpunt1.toString()+" - hoekpunt2: "+hoekpunt2.toString()+" - hoekpunt3: "+hoekpunt3.toString();
+		output+= "hoekpunt1: "+hoekpunt1.toString()+" - hoekpunt2: "+hoekpunt2.toString()+" - hoekpunt3: "+hoekpunt3.toString()+" -\n"+this.getOmhullende().toString();
 		
 		return output;
+	}
+
+	@Override
+	public Omhullende getOmhullende() {
+		int x1 = hoekpunt1.getX();
+		int x2 = hoekpunt2.getX();
+		int x3 = hoekpunt3.getX();
+		int y1 = hoekpunt1.getY();
+		int y2 = hoekpunt2.getY();
+		int y3 = hoekpunt3.getY();
+		int minx = Math.min(x1, Math.min(x2,x3));
+		int miny = Math.min(y1, Math.min(y2, y3));
+		int maxx = Math.max(x1, Math.max(x2, x3));
+		int maxy = Math.max(y1, Math.max(y2, y3));
+		Punt p = new Punt(minx, miny);
+		Omhullende o = new Omhullende(p, maxx-minx, maxy-miny);
+		return o;
 	}
 
 	

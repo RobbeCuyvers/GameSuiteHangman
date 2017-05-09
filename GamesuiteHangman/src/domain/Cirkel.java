@@ -40,7 +40,7 @@ public class Cirkel extends Vorm{
 	public String toString(){
 		 String output = "Cirkel: ";
 		 output += "middelPunt: "+ middelpunt.toString();
-		 output += " - straal: "+ radius; 
+		 output += " - straal: "+ radius+" -\n"+this.getOmhullende().toString(); 
 		 return output;
 		
 		
