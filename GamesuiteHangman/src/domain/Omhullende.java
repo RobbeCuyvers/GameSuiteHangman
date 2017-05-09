@@ -5,6 +5,7 @@ public class Omhullende {
 		private Punt positieLinksBoven;
 
 		public Omhullende(Punt positieLinksBoven, int breedte, int hoogte) {
+			//test
 			this.setpositieLinksBoven(positieLinksBoven);
 			this.setBreedte(breedte);
 			this.setHoogte(hoogte);
