@@ -43,7 +43,7 @@ public class Rechthoek extends Vorm{
 
 	@Override
 	public String toString() {
-		return "Rechthoek: positie: (" + linkerbovenhoek.getX() + ", " + linkerbovenhoek.getY() + ") -breedte:" + breedte + "- hoogte=" + hoogte+" -\n"+this.getOmhullende().toString();
+		return "Rechthoek: positie: (" + linkerbovenhoek.getX() + ", " + linkerbovenhoek.getY() + ") -breedte:" + breedte;
 	}
 	
 	@Override

@@ -8,19 +8,16 @@ public class PictionaryUi {
 
 	public static void toonMenu() {
 		String naam = JOptionPane.showInputDialog("Geef de naam van je tekening. ");
-
 		Tekening tekening = new Tekening(naam);
 
 		boolean stop = false;
 		while (!stop) {
-
 			int keuze2 = Integer.parseInt(JOptionPane.showInputDialog(
 					"Wat wil je doen: \n\n" + "1. Vorm maken \n" + "2. Tekening tonen \n\n" + "0. Stoppen"));
 			if (keuze2 == 1) {
 				Object[] shapes = { "Cirkel", "Rechthoek", "Lijnstuk", "Driehoek" };
 				Object keuze = JOptionPane.showInputDialog(null, "Welke vorm? ", "input",
 						JOptionPane.INFORMATION_MESSAGE, null, shapes, null);
-				if (keuze.equals("Cirkel")) {
 
 					if (keuze.equals("Cirkel")) {
 						try {
@@ -29,10 +26,14 @@ public class PictionaryUi {
 							int radius = Integer.parseInt(JOptionPane.showInputDialog("Radius van de cirkel:"));
 							Punt punt = new Punt(x, y);
 							Cirkel cirkel = new Cirkel(punt, radius);
-						} catch (DomainException e) {
+							tekening.voegToe(cirkel);
+						} 
+						catch (DomainException e) {
 							JOptionPane.showMessageDialog(null, e.getMessage(), null, JOptionPane.ERROR_MESSAGE);
 						}
-
+						catch (NumberFormatException e) {
+							JOptionPane.showMessageDialog(null, "geen geldig getal", null, JOptionPane.ERROR_MESSAGE);
+						}
 					}
 					else if (keuze.equals("Rechthoek")) {
 						try {
@@ -43,12 +44,15 @@ public class PictionaryUi {
 							int breedte = Integer.parseInt(JOptionPane.showInputDialog("x-coordinaat van breedte:"));
 							int hoogte = Integer.parseInt(JOptionPane.showInputDialog("y-coordinaat van hoogte:"));
 							Rechthoek rechthoek = new Rechthoek(punt, breedte, hoogte);
-						} catch (DomainException e) {
+							tekening.voegToe(rechthoek);
+						} 
+						catch (DomainException e) {
 							JOptionPane.showMessageDialog(null, e.getMessage(), null, JOptionPane.ERROR_MESSAGE);
 						}
-
+						catch (NumberFormatException e) {
+							JOptionPane.showMessageDialog(null, "geen geldig getal", null, JOptionPane.ERROR_MESSAGE);
+						}
 					}
-
 					else if (keuze.equals("Lijnstuk")) {
 						try {
 
@@ -59,13 +63,16 @@ public class PictionaryUi {
 							int y2 = Integer.parseInt(JOptionPane.showInputDialog("punt2:y-coordinaat?"));
 							Punt punt2 = new Punt(x2, y2);
 							LijnStuk lijnstuk1 = new LijnStuk(punt1, punt2);
-						} catch (DomainException e) {
+							tekening.voegToe(lijnstuk1);
+						} 
+						catch (DomainException e) {
 							JOptionPane.showMessageDialog(null, e.getMessage(), null, JOptionPane.ERROR_MESSAGE);
 						}
-
+						catch (NumberFormatException e) {
+							JOptionPane.showMessageDialog(null, "geen geldig getal", null, JOptionPane.ERROR_MESSAGE);
+						}
 					}
 					else if (keuze.equals("Driehoek")) {
-
 						try {
 							int x1 = Integer.parseInt(JOptionPane.showInputDialog("x-coordinaat van hoekpunt1:"));
 							int y1 = Integer.parseInt(JOptionPane.showInputDialog("y-coordinaat van hoekpunt1:"));
@@ -80,22 +87,26 @@ public class PictionaryUi {
 							Punt punt2 = new Punt(x2, y2);
 							Punt punt3 = new Punt(x3, y3);
 							Driehoek driehoek = new Driehoek(punt1, punt2, punt3);
-						} catch (DomainException e) {
+							tekening.voegToe(driehoek);
+						} 
+						catch (DomainException e) {
 							JOptionPane.showMessageDialog(null, e.getMessage(), null, JOptionPane.ERROR_MESSAGE);
 						}
+						catch (NumberFormatException e) {
+							JOptionPane.showMessageDialog(null, "geen geldig getal", null, JOptionPane.ERROR_MESSAGE);
+						}
 					}
-
-				} else if (keuze2 == 2) {
-
-				} else if (keuze2 == 0) {
+				} 
+				else if (keuze2 == 2) {
+					JOptionPane.showMessageDialog(null, tekening);
+				} 
+				else if (keuze2 == 0) {
 					stop = true;
-
-				} else {
+				} 
+				else {
 					JOptionPane.showMessageDialog(null, "Voer een geldig nummer in. ");
 				}
 			}
 
 		}
-
-	}
 }
