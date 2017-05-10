@@ -55,7 +55,7 @@ public class Cirkel extends Vorm implements Drawable{
 	}
 
 	@Override
-	public void Teken(Graphics g){
+	public void teken(Graphics g){
 		
 	}
 
