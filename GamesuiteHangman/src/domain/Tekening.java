@@ -8,12 +8,8 @@ public class Tekening implements Drawable {
 	private static final int MIN_X = 0, MIN_Y = 0, MAX_X = 399, MAX_Y = 399;
 	private List<Vorm> vormen;
 	
-<<<<<<< HEAD
 	@Override
-	public void Teken(Graphics g){
-=======
 	public void teken(Graphics g){
->>>>>>> 4dc0cde65ee28550d969b5f1a223372b9d0ad566
 		
 	}
 	

@@ -15,7 +15,7 @@ public class Speler {
 	
 	public void setNaam(String naam) {
 		if (naam == null || naam.trim().isEmpty()) {
-			throw new DomainException("naam mag niet null zijn");
+			throw new DomainException("Naam mag niet leeg zijn");
 		}
 		this.naam = naam;
 	}
@@ -28,8 +28,8 @@ public class Speler {
 		this.score += score;
 		if (this.score < 0) {
 			this.score -= score;
-			throw new DomainException("score mag niet 0 zijn");
-		}	
+			throw new DomainException("Score mag niet 0 zijn");
+		}
 	}
 	
 	@Override

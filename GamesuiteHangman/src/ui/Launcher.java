@@ -16,8 +16,7 @@ public class Launcher {
 			 speler = new Speler(naam);;
 		}
 		catch (DomainException e){
-			JOptionPane.showMessageDialog(null, e.getMessage(), null, JOptionPane.ERROR_MESSAGE);
-			
+			JOptionPane.showMessageDialog(null, e.getMessage(), null, JOptionPane.ERROR_MESSAGE);	
 		}
 		Object[] games = { "Hangman", "Pictionary" };
 		Object keuze = JOptionPane.showInputDialog(null, "Welke game? ", "input", JOptionPane.INFORMATION_MESSAGE, null, games, null);
