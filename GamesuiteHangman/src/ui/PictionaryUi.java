@@ -39,8 +39,8 @@ public class PictionaryUi {
 						int y = Integer.parseInt(JOptionPane.showInputDialog("y-coordinaat van linkerbovenhoek:"));
 
 						Punt punt = new Punt(x, y);
-						int breedte = Integer.parseInt(JOptionPane.showInputDialog("x-coordinaat van breedte:"));
-						int hoogte = Integer.parseInt(JOptionPane.showInputDialog("y-coordinaat van hoogte:"));
+						int breedte = Integer.parseInt(JOptionPane.showInputDialog("breedte:"));
+						int hoogte = Integer.parseInt(JOptionPane.showInputDialog("hoogte:"));
 						Rechthoek rechthoek = new Rechthoek(punt, breedte, hoogte);
 						tekening.voegToe(rechthoek);
 					} catch (DomainException e) {
