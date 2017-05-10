@@ -41,20 +41,20 @@ public class Omhullende {
 		this.positieLinksBoven = positieLinksBoven;
 	}
 
-	public int getMaximumX() {
+	public int getMaxX() {
 		return positieLinksBoven.getX() + breedte;
 	}
 
-	public int getMaximumY() {
+	public int getMaxY() {
 		return positieLinksBoven.getY() + hoogte;
 
 	}
 
-	public int getMinimumX() {
+	public int getMinX() {
 		return positieLinksBoven.getX();
 	}
 
-	public int getMinimumY() {
+	public int getMinY() {
 		return positieLinksBoven.getY();
 
 	}

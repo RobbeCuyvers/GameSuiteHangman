@@ -86,22 +86,22 @@ public class OmhullendeTest {
 
 	@Test
 	public void getMaximumX_geeft_correcte_waarde() {
-		assertEquals(220, omhullende.getMaximumX());
+		assertEquals(220, omhullende.getMaxX());
 	}
 
 	@Test
 	public void getMaximumY_geeft_correcte_waarde() {
-		assertEquals(240, omhullende.getMaximumY());
+		assertEquals(240, omhullende.getMaxY());
 	}
 
 	@Test
 	public void getMinimumX_geeft_correcte_waarde() {
-		assertEquals(200, omhullende.getMinimumX());
+		assertEquals(200, omhullende.getMinX());
 	}
 
 	@Test
 	public void getMinimumY_geeft_correcte_waarde() {
-		assertEquals(200, omhullende.getMinimumY());
+		assertEquals(200, omhullende.getMinY());
 	}
 
 }
