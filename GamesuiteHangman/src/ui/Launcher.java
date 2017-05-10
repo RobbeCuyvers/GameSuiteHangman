@@ -8,11 +8,6 @@ import domain.*;
 public class Launcher {
 
 	public static void main(String[] args) {
-		Punt punt1 = new Punt(10, 20);
-		Punt punt2 = new Punt(190, 30);
-		LijnStuk lijn = new LijnStuk(punt1, punt2);
-		lijn.teken(null);
-		
 		
 		String naam = JOptionPane.showInputDialog("Hallo, wat is jouw naam?");
 		Speler speler = null;
