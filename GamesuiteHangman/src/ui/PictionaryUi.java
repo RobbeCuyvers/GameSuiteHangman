@@ -5,10 +5,9 @@ import javax.swing.JOptionPane;
 import domain.*;
 
 public class PictionaryUi {
-
-	public static void play() {
-		String naam = JOptionPane.showInputDialog("Wat is je naam?");
-		Speler speler = new Speler(naam);
+	
+	public static void play(Speler speler1) {
+		Speler speler = speler1;
 		Tekening tekening = new Tekening("Tekening");
 
 		boolean stop = false;
