@@ -16,7 +16,6 @@ public class Cirkel extends Vorm implements Drawable {
 		
 	}
 
-
 	public Punt getMiddelpunt() {
 		return this.middelpunt;
 	}
@@ -52,9 +51,6 @@ public class Cirkel extends Vorm implements Drawable {
 		this.radius = radius;
 	}
 
-
-
-
 	@Override
 	public String toString() {
 		String output = "Cirkel: ";
@@ -74,12 +70,9 @@ public class Cirkel extends Vorm implements Drawable {
 				gelijk = true;
 			}
 
-
 		}
 		return gelijk;
 	}
-	
-
 
 	@Override
 
@@ -87,7 +80,6 @@ public class Cirkel extends Vorm implements Drawable {
 
 		Punt linkerBoven = new Punt(middelpunt.getX() - radius, middelpunt.getY() - radius);
 		Omhullende o = new Omhullende(linkerBoven, 2 * radius, 2 * radius);
-
 
 		return o;
 	}

@@ -10,7 +10,9 @@ public class Tekening implements Drawable {
 
 	@Override
 	public void teken(Graphics g) {
-
+		for (Vorm vorm : vormen) {
+			vorm.teken(g);
+		}
 	}
 
 	public Tekening(String naam) {

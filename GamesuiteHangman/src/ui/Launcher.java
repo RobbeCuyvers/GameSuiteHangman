@@ -3,13 +3,12 @@ package ui;
 import javax.swing.JOptionPane;
 
 import db.WoordenLezer;
-import domain.DomainException;
-import domain.Speler;
-import domain.WoordenLijst;
+import domain.*;
 
 public class Launcher {
 
 	public static void main(String[] args) {
+		
 		String naam = JOptionPane.showInputDialog("Hallo, wat is jouw naam?");
 		Speler speler = null;
 

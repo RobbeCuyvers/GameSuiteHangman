@@ -7,8 +7,9 @@ import domain.*;
 public class PictionaryUi {
 
 	public static void play() {
-		String naam = JOptionPane.showInputDialog("Geef de naam van je tekening. ");
-		Tekening tekening = new Tekening(naam);
+		String naam = JOptionPane.showInputDialog("Wat is je naam?");
+		Speler speler = new Speler(naam);
+		Tekening tekening = new Tekening("Tekening");
 
 		boolean stop = false;
 		while (!stop) {
@@ -86,7 +87,9 @@ public class PictionaryUi {
 					}
 				}
 			} else if (keuze2 == 2) {
-				JOptionPane.showMessageDialog(null, tekening);
+				GameHoofdScherm view = new GameHoofdScherm(speler.getNaam(), tekening);
+				view.setVisible(true);
+				view.teken();
 			} else if (keuze2 == 0) {
 				stop = true;
 			} else {

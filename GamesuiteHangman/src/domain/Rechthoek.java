@@ -1,6 +1,8 @@
 package domain;
 
+import java.awt.BasicStroke;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 
 public class Rechthoek extends Vorm implements Drawable {
 
@@ -67,7 +69,12 @@ public class Rechthoek extends Vorm implements Drawable {
 	}
 
 	@Override
-	public void teken(Graphics g) {
-
+	public void teken(Graphics graphics) {
+		Graphics2D graphics2D = (Graphics2D) graphics;
+		graphics2D.setStroke(new BasicStroke(5));
+		Rechthoek rechthoek = new Rechthoek(getLinkerBovenhoek(), getBreedte(), getHoogte());
+		graphics.drawRect(rechthoek.getLinkerBovenhoek().getX(), rechthoek
+				.getLinkerBovenhoek().getY(), rechthoek.getBreedte(), rechthoek
+				.getHoogte());
 	}
 }

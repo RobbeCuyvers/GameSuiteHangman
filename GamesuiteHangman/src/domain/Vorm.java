@@ -3,6 +3,7 @@ package domain;
 import java.awt.Canvas;
 import java.awt.Graphics;
 
+
 public abstract class Vorm extends Canvas{
 	private boolean zichtbaar;
 	
