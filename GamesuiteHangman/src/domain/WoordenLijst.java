@@ -20,10 +20,13 @@ public class WoordenLijst {
 		return woorden.size();
 	}
 
-	public void voegToe(String woord) {
-		if (!woorden.contains(woord)) {
-			woorden.add(woord);
-		}
+
+
+
+	public void voegToe(String woord){
+		if(woord==null||woord.trim().isEmpty()||woorden.contains(woord))
+			throw new DomainException("Woord mag niet leeg zijn.");
+		woorden.add(woord);
 	}
 
 	public String getRandomWoord() {
