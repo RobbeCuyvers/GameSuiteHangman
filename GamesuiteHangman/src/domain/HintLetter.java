@@ -9,6 +9,9 @@ public class HintLetter {
 
 		this.letter = letter;
 		geraden = false;
+		if(letter == ' '){
+			geraden = true;
+		}
 	}
 
 	public boolean raad(char letter) {
