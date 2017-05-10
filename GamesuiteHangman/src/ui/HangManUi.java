@@ -5,16 +5,29 @@ import javax.swing.JOptionPane;
 import domain.DomainException;
 import domain.HintWoord;
 import domain.Speler;
+import domain.WoordenLijst;
 
 public class HangManUi {
-	public static void play(){
-		String naam = JOptionPane.showInputDialog("Hallo, wat is jouw naam?");
-		Speler speler;
+	private Speler speler;
+	private WoordenLijst woordenlijst;
+	
+	public HangManUi(Speler speler, WoordenLijst woordenlijst){
+		if(speler==null||woordenlijst==null){
+			throw new UiException("Ongeldige speler of woordenlijst.");
+		}
+		
+		this.speler = speler;
+		this.woordenlijst = woordenlijst;
+	}
+	
+	
+	public void play(){
+		
 		
 		try{
-			speler = new Speler(naam);
+			
 			//Hardcoded word
-			HintWoord woord = new HintWoord("appel");
+			HintWoord woord = new HintWoord(woordenlijst.getRandomWoord());
 			String begin = "";
 			String gelukt = "Super, doe zo voor!\n"+begin;
 			String mislukt = "Helaas, volgende keer beter!\n";
@@ -24,11 +37,11 @@ public class HangManUi {
 				begin = (woord.raad(letter)?gelukt:mislukt);
 			}
 			
-		}
+			}
 		catch (DomainException e){
 			JOptionPane.showMessageDialog(null, e.getMessage(), null, JOptionPane.ERROR_MESSAGE);
-			
-		}
+				
+			}
 		
 		
 	}

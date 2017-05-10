@@ -6,7 +6,7 @@ import domain.*;
 
 public class PictionaryUi {
 
-	public static void toonMenu() {
+	public static void play() {
 		String naam = JOptionPane.showInputDialog("Geef de naam van je tekening. ");
 		Tekening tekening = new Tekening(naam);
 
