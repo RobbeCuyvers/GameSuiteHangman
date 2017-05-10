@@ -12,6 +12,7 @@ public class HintWoord {
 			throw new DomainException("Ongeldig woord.");
 		}
 		hintLetters = new ArrayList<>();
+		
 		char[] letters = woord.toCharArray();
 
 		for (char letter : letters) {
