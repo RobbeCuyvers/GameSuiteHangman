@@ -12,6 +12,7 @@ public class Cirkel extends Vorm implements Drawable{
 		setRadius(radius);
 	}
 	
+	@Override
 	public void teken(Graphics g){
 		
 	}
@@ -44,6 +45,7 @@ public class Cirkel extends Vorm implements Drawable{
 		return this.radius;
 	}
 	
+	@Override
 	public String toString(){
 		 String output = "Cirkel: ";
 		 output += "middelPunt: "+ middelpunt.toString();
@@ -53,6 +55,7 @@ public class Cirkel extends Vorm implements Drawable{
 		
 	}
 	
+	@Override
 	public boolean equals(Object o){
 		
 		boolean gelijk = false;
