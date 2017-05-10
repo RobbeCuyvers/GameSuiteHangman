@@ -4,22 +4,21 @@ public class Speler {
 	private String naam;
 	private int score;
 	
-	
 	public Speler(String naam) {
 		setNaam(naam);
+		this.score = 0;
 	}
-
-
-	private void setNaam(String naam) {
-		if (naam == null || naam.trim().isEmpty()) throw new DomainException("naam mag niet null zijn");
-		this.naam = naam;
-	}
-
-
+	
 	public String getNaam() {
 		return naam;
 	}
-
+	
+	public void setNaam(String naam) {
+		if (naam == null || naam.trim().isEmpty()) {
+			throw new DomainException("Naam mag niet leeg zijn");
+		}
+		this.naam = naam;
+	}
 
 	public int getScore() {
 		return score;
@@ -28,11 +27,10 @@ public class Speler {
 	public void addToScore(int score){
 		this.score += score;
 		if (this.score < 0) {
-			this.score-=score;
-			throw new DomainException("score mag niet 0 zijn");
+			this.score -= score;
+			throw new DomainException("Score mag niet 0 zijn");
 		}
 	}
-	
 	
 	@Override
 	public boolean equals(Object object){
@@ -46,7 +44,6 @@ public class Speler {
 	
 	@Override
 	public String toString(){
-		return this.naam + " score : " + this.score;
+		return getNaam() + " heeft als score: " + getScore();
 	}
-
 }

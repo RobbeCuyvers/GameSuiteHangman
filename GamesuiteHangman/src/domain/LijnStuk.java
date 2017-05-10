@@ -11,8 +11,8 @@ public class LijnStuk extends Vorm implements Drawable{
 		setStartEnEindPunt(start, einde);		
 	}
 	
-	public void teken(Graphics g){
-		
+	@Override
+	public void teken(Graphics g){	
 	}
 	
 	public void setStartEnEindPunt(Punt start, Punt einde) {
@@ -56,6 +56,7 @@ public class LijnStuk extends Vorm implements Drawable{
 		return res;
 	}
 	
+	@Override
 	public Omhullende getOmhullende(){
 		
 		int x1 = start.getX();

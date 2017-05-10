@@ -2,6 +2,7 @@ package ui;
 
 import javax.swing.JOptionPane;
 
+import db.WoordenLezer;
 import domain.DomainException;
 import domain.Speler;
 import domain.WoordenLijst;
@@ -16,8 +17,7 @@ public class Launcher {
 			 speler = new Speler(naam);;
 		}
 		catch (DomainException e){
-			JOptionPane.showMessageDialog(null, e.getMessage(), null, JOptionPane.ERROR_MESSAGE);
-			
+			JOptionPane.showMessageDialog(null, e.getMessage(), null, JOptionPane.ERROR_MESSAGE);	
 		}
 		Object[] games = { "Hangman", "Pictionary" };
 		Object keuze = JOptionPane.showInputDialog(null, "Welke game? ", "input", JOptionPane.INFORMATION_MESSAGE, null, games, null);
@@ -26,7 +26,9 @@ public class Launcher {
 			PictionaryUi.play();
 		}
 		else if (keuze.equals("Hangman")) {
-			WoordenLijst woordenlijst = new WoordenLijst();
+			WoordenLezer woordenLezer = new WoordenLezer("hangman.txt");
+			WoordenLijst woordenlijst = woordenLezer.lees();
+			
 			HangManUi hangman = new HangManUi(speler, woordenlijst);
 			hangman.play();
 		}

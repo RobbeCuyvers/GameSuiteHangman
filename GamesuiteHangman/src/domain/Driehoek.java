@@ -9,10 +9,11 @@ public class Driehoek extends Vorm implements Drawable{
 	private Punt hoekpunt3;
 	
 	
-	public Driehoek(Punt hoekpunt1, Punt hoekpunt2,Punt hoekpunt3){
+	public Driehoek(Punt hoekpunt1, Punt hoekpunt2,Punt hoekpunt3) {
 		setHoekpunten(hoekpunt1,hoekpunt2,hoekpunt3);
 	}
 	
+	@Override
 	public void teken(Graphics g){
 		
 	}
@@ -110,7 +111,4 @@ public class Driehoek extends Vorm implements Drawable{
 		Omhullende o = new Omhullende(p, maxx-minx, maxy-miny);
 		return o;
 	}
-	
-	
-
 }
