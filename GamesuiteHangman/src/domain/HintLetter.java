@@ -12,8 +12,10 @@ public class HintLetter {
 	}
 	
 	public boolean raad(char letter){
+		if(geraden)
+			return false;
 		
-		if(this.letter == letter){
+		if(Character.toLowerCase(this.letter)==Character.toLowerCase(letter)){
 			geraden = true;
 		}
 		
