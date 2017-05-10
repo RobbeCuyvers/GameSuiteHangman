@@ -2,6 +2,7 @@ package ui;
 
 import javax.swing.JOptionPane;
 
+import db.WoordenLezer;
 import domain.DomainException;
 import domain.Speler;
 import domain.WoordenLijst;
@@ -26,7 +27,9 @@ public class Launcher {
 			PictionaryUi.play();
 		}
 		else if (keuze.equals("Hangman")) {
-			WoordenLijst woordenlijst = new WoordenLijst();
+			WoordenLezer woordenLezer = new WoordenLezer("hangman.txt");
+			WoordenLijst woordenlijst = woordenLezer.lees();
+			
 			HangManUi hangman = new HangManUi(speler, woordenlijst);
 			hangman.play();
 		}

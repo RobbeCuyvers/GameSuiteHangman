@@ -33,8 +33,16 @@ public class HangManUi {
 			String mislukt = "Helaas, volgende keer beter!\n";
 			
 			while(!woord.isGeraden()){
-				char letter = JOptionPane.showInputDialog(null, begin+"Rarara, welk woord zoeken we\n"+woord.toString()+"\nGeef een letter:", "Hangman - "+speler.getNaam(), JOptionPane.INFORMATION_MESSAGE).toCharArray()[0];
+				String raad = "";
+				
+				do{
+					raad = JOptionPane.showInputDialog(null, begin+"Rarara, welk woord zoeken we\n"+woord.toString()+"\nGeef een letter:", "Hangman - "+speler.getNaam(), JOptionPane.INFORMATION_MESSAGE);
+				}while(raad.trim().isEmpty());
+					
+				
+				char letter = raad.toCharArray()[0];
 				begin = (woord.raad(letter)?gelukt:mislukt);
+				
 			}
 			
 			}
