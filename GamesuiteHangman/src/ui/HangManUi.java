@@ -5,6 +5,8 @@ import javax.swing.JOptionPane;
 import domain.DomainException;
 import domain.HintWoord;
 import domain.Speler;
+import domain.Tekening;
+import domain.TekeningHangMan;
 import domain.WoordenLijst;
 
 public class HangManUi {
@@ -21,10 +23,13 @@ public class HangManUi {
 	}
 
 	public void play() {
+		
+		Tekening tekening = new TekeningHangMan("Hangman");
+		GameHoofdScherm view = new GameHoofdScherm(speler.getNaam(), tekening);
+		view.setVisible(true);
+		view.teken();
 
 		try {
-
-			// Hardcoded word
 			HintWoord woord = new HintWoord(woordenlijst.getRandomWoord());
 			String begin = "";
 			String gelukt = "Super, doe zo voor!\n" + begin;
