@@ -15,7 +15,7 @@ public class Cirkel extends Vorm implements Drawable{
 	public Punt getMiddelpunt(){
 		return this.middelpunt;	
 	}
-	
+
 	public void setMiddelpunt(Punt middelpunt){
 		if(middelpunt == null){
 			throw new DomainException("Middelpunt mag niet null zijn.");
