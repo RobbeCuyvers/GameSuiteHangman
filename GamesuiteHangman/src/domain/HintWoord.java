@@ -55,6 +55,7 @@ public class HintWoord {
 		
 	}
 	
+	@Override
 	public String toString(){
 		String woord ="";
 		for(HintLetter c : hintLetters){

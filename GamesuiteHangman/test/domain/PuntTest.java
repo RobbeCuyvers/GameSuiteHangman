@@ -13,7 +13,7 @@ public class PuntTest {
 
 	@Before
 	public void setUp() throws Exception {
-		xCoordinaat = 5;
+		xCoordinaat = -5;
 		yCoordinaat = 10;
 		punt = new Punt(xCoordinaat, yCoordinaat);
 	}

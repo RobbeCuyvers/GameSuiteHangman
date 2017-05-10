@@ -12,10 +12,6 @@ public class Rechthoek extends Vorm implements Drawable{
 		this.setBreedte(breedte);
 		this.setHoogte(hoogte);
 	}
-	
-	public void Teken(Graphics g){
-		
-	}
 
 	public int getBreedte() {
 		return breedte;
@@ -44,13 +40,14 @@ public class Rechthoek extends Vorm implements Drawable{
 		this.linkerbovenhoek = linkerbovenhoek;
 	}
 	
+	@Override
 	public Omhullende getOmhullende(){
 		return new Omhullende(this.linkerbovenhoek, this.breedte, this.hoogte);
 	}
 
 	@Override
 	public String toString() {
-		return "Rechthoek: positie: (" + linkerbovenhoek.getX() + ", " + linkerbovenhoek.getY() + ") -breedte:" + breedte;
+		return "Rechthoek: positie: " + getLinkerBovenhoek() + " - breedte: " + getBreedte() + " - hoogte: " + getHoogte();
 	}
 	
 	@Override
@@ -61,9 +58,10 @@ public class Rechthoek extends Vorm implements Drawable{
 				return true;
 		}
 		return false;
+	}	
+	
+	@Override
+	public void Teken(Graphics g){
+		
 	}
-	
-	
-	
-	
 }

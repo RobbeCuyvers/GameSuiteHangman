@@ -13,6 +13,7 @@ public class Driehoek extends Vorm implements Drawable{
 		setHoekpunten(hoekpunt1,hoekpunt2,hoekpunt3);
 	}
 	
+	@Override
 	public void Teken(Graphics g){
 		
 	}

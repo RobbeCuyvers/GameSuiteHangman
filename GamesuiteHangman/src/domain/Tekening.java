@@ -8,6 +8,7 @@ public class Tekening implements Drawable {
 	private static final int MIN_X = 0, MIN_Y = 0, MAX_X = 399, MAX_Y = 399;
 	private List<Vorm> vormen;
 	
+	@Override
 	public void Teken(Graphics g){
 		
 	}
@@ -72,6 +73,7 @@ public class Tekening implements Drawable {
 		return vormen;
 	}
 	
+	@Override
 	public String toString(){
 		String res = "Tekening met naam " + getNaam() + " bestaat uit " + getAantalVormen() + " vormen: \n";
 		for (Vorm vorm : vormen) {
