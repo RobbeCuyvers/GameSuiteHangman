@@ -8,7 +8,7 @@ public class Tekening implements Drawable {
 	private static final int MIN_X = 0, MIN_Y = 0, MAX_X = 399, MAX_Y = 399;
 	private List<Vorm> vormen;
 	
-	public void Teken(Graphics g){
+	public void teken(Graphics g){
 		
 	}
 	
