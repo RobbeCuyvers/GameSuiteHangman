@@ -8,11 +8,13 @@ public class LijnStuk extends Vorm implements Drawable {
 	private Punt einde;
 
 	public LijnStuk(Punt start, Punt einde) {
+		super();
 		setStartEnEindPunt(start, einde);
 	}
 
 	@Override
 	public void teken(Graphics g) {
+		
 	}
 
 	public void setStartEnEindPunt(Punt start, Punt einde) {

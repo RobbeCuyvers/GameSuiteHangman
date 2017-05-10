@@ -32,7 +32,7 @@ public class WoordenLezer {
 		ArrayList<String> words = new ArrayList<String>();
 		
 		//File woordenFile = new File(Paths.get("/Users/thomascorthouts/Documents/GitHub/GameSuiteHangman/GamesuiteHangman/bestanden/hangman.txt").toString());
-		File woordenFile = new File(this.filename);
+		File woordenFile = new File("bestanden/hangman.txt");
 		try{
 			Scanner scannerFile = new Scanner(woordenFile);
 			while(scannerFile.hasNextLine()){

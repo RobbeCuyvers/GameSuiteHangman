@@ -8,6 +8,7 @@ public class Rechthoek extends Vorm implements Drawable {
 	private Punt linkerbovenhoek;
 
 	public Rechthoek(Punt linkerbovenhoek, int breedte, int hoogte) {
+		super();
 		this.setLinkerbovenhoek(linkerbovenhoek);
 		this.setBreedte(breedte);
 		this.setHoogte(hoogte);

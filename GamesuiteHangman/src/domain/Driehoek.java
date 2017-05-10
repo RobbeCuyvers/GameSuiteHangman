@@ -1,6 +1,8 @@
 package domain;
 
+import java.awt.BasicStroke;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 
 public class Driehoek extends Vorm implements Drawable {
 
@@ -9,11 +11,21 @@ public class Driehoek extends Vorm implements Drawable {
 	private Punt hoekpunt3;
 
 	public Driehoek(Punt hoekpunt1, Punt hoekpunt2, Punt hoekpunt3) {
+		super();
 		setHoekpunten(hoekpunt1, hoekpunt2, hoekpunt3);
 	}
 
 	@Override
-	public void teken(Graphics g) {
+	public void teken(Graphics graphics) {
+		Graphics2D graphics2D = (Graphics2D) graphics;
+		graphics2D.setStroke(new BasicStroke(5));
+
+
+		int[] xPoints = { hoekpunt1.getX(), hoekpunt2.getX(),
+				hoekpunt3.getX() };
+		int[] yPoints = { hoekpunt1.getY(), hoekpunt2.getY(),
+				hoekpunt3.getY() };
+		graphics.drawPolygon(xPoints, yPoints, 3);
 
 	}
 
