@@ -10,47 +10,44 @@ import domain.WoordenLijst;
 public class HangManUi {
 	private Speler speler;
 	private WoordenLijst woordenlijst;
-	
-	public HangManUi(Speler speler, WoordenLijst woordenlijst){
-		if(speler==null||woordenlijst==null){
+
+	public HangManUi(Speler speler, WoordenLijst woordenlijst) {
+		if (speler == null || woordenlijst == null) {
 			throw new UiException("Ongeldige speler of woordenlijst.");
 		}
-		
+
 		this.speler = speler;
 		this.woordenlijst = woordenlijst;
 	}
-	
-	
-	public void play(){
-		
-		
-		try{
-			
-			//Hardcoded word
+
+	public void play() {
+
+		try {
+
+			// Hardcoded word
 			HintWoord woord = new HintWoord(woordenlijst.getRandomWoord());
 			String begin = "";
-			String gelukt = "Super, doe zo voor!\n"+begin;
+			String gelukt = "Super, doe zo voor!\n" + begin;
 			String mislukt = "Helaas, volgende keer beter!\n";
-			
-			while(!woord.isGeraden()){
+
+			while (!woord.isGeraden()) {
 				String raad = "";
-				
-				do{
-					raad = JOptionPane.showInputDialog(null, begin+"Rarara, welk woord zoeken we\n"+woord.toString()+"\nGeef een letter:", "Hangman - "+speler.getNaam(), JOptionPane.INFORMATION_MESSAGE);
-				}while(raad.trim().isEmpty());
-					
-				
+
+				do {
+					raad = JOptionPane.showInputDialog(null,
+							begin + "Rarara, welk woord zoeken we\n" + woord.toString() + "\nGeef een letter:",
+							"Hangman - " + speler.getNaam(), JOptionPane.INFORMATION_MESSAGE);
+				} while (raad.trim().isEmpty());
+
 				char letter = raad.toCharArray()[0];
-				begin = (woord.raad(letter)?gelukt:mislukt);
-				
+				begin = (woord.raad(letter) ? gelukt : mislukt);
+
 			}
-			
-			}
-		catch (DomainException e){
+
+		} catch (DomainException e) {
 			JOptionPane.showMessageDialog(null, e.getMessage(), null, JOptionPane.ERROR_MESSAGE);
-				
-			}
-		
-		
+
+		}
+
 	}
 }
