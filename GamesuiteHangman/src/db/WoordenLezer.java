@@ -39,12 +39,17 @@ public class WoordenLezer {
 				Scanner scannerLijn = new Scanner(scannerFile.nextLine());
 				String woord = scannerLijn.next();
 				words.add(woord);
+				scannerLijn.close();
 			}
+			scannerFile.close();
 		}
 		catch(FileNotFoundException ex){
 			throw new DomainException("Fout bij het inlezen");
 		}
 		return words;
 	}
-
+	
+	public String getFileName() {
+		return filename;
+	}
 }
