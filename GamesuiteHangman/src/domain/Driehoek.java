@@ -17,15 +17,14 @@ public class Driehoek extends Vorm implements Drawable {
 
 	@Override
 	public void teken(Graphics graphics) {
-		Graphics2D graphics2D = (Graphics2D) graphics;
-		graphics2D.setStroke(new BasicStroke(5));
+		if (this.isZichtbaar()) {
+			Graphics2D graphics2D = (Graphics2D) graphics;
+			graphics2D.setStroke(new BasicStroke(5));
 
-
-		int[] xPoints = { hoekpunt1.getX(), hoekpunt2.getX(),
-				hoekpunt3.getX() };
-		int[] yPoints = { hoekpunt1.getY(), hoekpunt2.getY(),
-				hoekpunt3.getY() };
-		graphics.drawPolygon(xPoints, yPoints, 3);
+			int[] xPoints = { hoekpunt1.getX(), hoekpunt2.getX(), hoekpunt3.getX() };
+			int[] yPoints = { hoekpunt1.getY(), hoekpunt2.getY(), hoekpunt3.getY() };
+			graphics.drawPolygon(xPoints, yPoints, 3);
+		}
 
 	}
 

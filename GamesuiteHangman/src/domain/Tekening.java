@@ -11,7 +11,8 @@ public class Tekening implements Drawable {
 	@Override
 	public void teken(Graphics g) {
 		for (Vorm vorm : vormen) {
-			vorm.teken(g);
+			if(vorm.isZichtbaar())
+				vorm.teken(g);
 		}
 	}
 
@@ -70,7 +71,7 @@ public class Tekening implements Drawable {
 		return false;
 	}
 
-	public List<Vorm> getAlleVormern() {
+	public List<Vorm> getAlleVormen() {
 		return vormen;
 	}
 
@@ -89,7 +90,7 @@ public class Tekening implements Drawable {
 			return false;
 		} else if (object instanceof Tekening) {
 			Tekening tekening = (Tekening) object;
-			List<Vorm> vormenTekening1 = tekening.getAlleVormern();
+			List<Vorm> vormenTekening1 = tekening.getAlleVormen();
 			if (vormenTekening1.size() != this.getAantalVormen()) {
 				return false;
 			} else {

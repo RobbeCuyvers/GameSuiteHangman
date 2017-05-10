@@ -1,10 +1,9 @@
 package domain;
 
-import java.awt.Canvas;
 import java.awt.Graphics;
 
 
-public abstract class Vorm extends Canvas{
+public abstract class Vorm implements Drawable{
 	private boolean zichtbaar;
 	
 	
@@ -21,9 +20,7 @@ public abstract class Vorm extends Canvas{
 	public abstract String toString();
 	
 	
-	public void teken(Graphics graphics){
-		
-	}
+	public abstract void teken(Graphics graphics);
 	
 	public boolean isZichtbaar(){
 		return zichtbaar;

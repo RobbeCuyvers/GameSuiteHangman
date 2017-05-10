@@ -13,7 +13,7 @@ public class Cirkel extends Vorm implements Drawable {
 		super();
 		setMiddelpunt(middelPunt);
 		setRadius(radius);
-		
+
 	}
 
 	public Punt getMiddelpunt() {
@@ -22,13 +22,13 @@ public class Cirkel extends Vorm implements Drawable {
 
 	@Override
 	public void teken(Graphics graphics) {
-		Graphics2D graphics2D = (Graphics2D) graphics;
-		graphics2D.setStroke(new BasicStroke(5));
-		
-		graphics.drawOval(this.getOmhullende().getMinX(), this
-				.getOmhullende().getMinY(), this.getOmhullende()
-				.getBreedte(), this.getOmhullende().getHoogte());
+		if (this.isZichtbaar()) {
+			Graphics2D graphics2D = (Graphics2D) graphics;
+			graphics2D.setStroke(new BasicStroke(5));
 
+			graphics.drawOval(this.getOmhullende().getMinX(), this.getOmhullende().getMinY(),
+					this.getOmhullende().getBreedte(), this.getOmhullende().getHoogte());
+		}
 	}
 
 	public void setMiddelpunt(Punt middelpunt) {
