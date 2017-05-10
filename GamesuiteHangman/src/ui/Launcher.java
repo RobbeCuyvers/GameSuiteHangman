@@ -14,7 +14,6 @@ public class Launcher {
 
 		try {
 			speler = new Speler(naam);
-			;
 		} catch (DomainException e) {
 			JOptionPane.showMessageDialog(null, e.getMessage(), null, JOptionPane.ERROR_MESSAGE);
 		}
@@ -23,7 +22,7 @@ public class Launcher {
 				games, null);
 
 		if (keuze.equals("Pictionary")) {
-			PictionaryUi.play();
+			PictionaryUi.play(speler);
 		} else if (keuze.equals("Hangman")) {
 			WoordenLezer woordenLezer = new WoordenLezer("hangman.txt");
 			WoordenLijst woordenlijst = woordenLezer.lees();
