@@ -39,8 +39,8 @@ public class Tekening implements Drawable {
 	public void voegToe(Vorm vorm) {
 		if (vorm == null) {
 			throw new DomainException("Geen geldige vorm");
-		} else if (vorm.getOmhullende().getMaxX() > MAX_X && vorm.getOmhullende().getMaxY() > MAX_Y
-				&& vorm.getOmhullende().getMinX() < MIN_X && vorm.getOmhullende().getMinY() < MIN_Y) {
+		} else if (vorm.getOmhullende().getMaxX() > MAX_X || vorm.getOmhullende().getMaxY() > MAX_Y
+				|| vorm.getOmhullende().getMinX() < MIN_X || vorm.getOmhullende().getMinY() < MIN_Y) {
 			throw new DomainException("De vorm past niet in de tekening");
 		}
 		vormen.add(vorm);
