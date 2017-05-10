@@ -66,12 +66,15 @@ public class TekeningHangMan extends Tekening {
 	}
 
 	public void zetVolgendeZichtbaar() {
+		boolean gevonden = false;
 		for (Vorm v : super.getAlleVormen()) {
-			if (!v.isZichtbaar()) {
+			if (!v.isZichtbaar()&&gevonden==false) {
 				v.setZichtbaar(true);
+				gevonden = true;
 			}
 		}
-		throw new DomainException("Alle vormen zijn reeds zichtbaar!");
+		if(gevonden==false)
+			throw new DomainException("Alle vormen zijn reeds zichtbaar!");
 	}
 
 	public void reset() {
