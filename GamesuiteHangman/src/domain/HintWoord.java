@@ -8,7 +8,7 @@ public class HintWoord {
 	private List<HintLetter> hintLetters;
 
 	public HintWoord(String woord) {
-		if (woord == null) {
+		if (woord == null || woord.trim().isEmpty()) {
 			throw new DomainException("Ongeldig woord.");
 		}
 		hintLetters = new ArrayList<>();
@@ -58,6 +58,8 @@ public class HintWoord {
 		for (HintLetter c : hintLetters) {
 			woord += c.toChar() + " ";
 		}
+		if (woord.endsWith(" "))
+			woord = woord.substring(0, woord.length() - 1);
 		return woord;
 
 	}
