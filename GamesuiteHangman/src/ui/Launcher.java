@@ -26,7 +26,7 @@ public class Launcher {
 			PictionaryUi.play();
 		}
 		else if (keuze.equals("Hangman")) {
-			WoordenLijst woordenlijst = null;
+			WoordenLijst woordenlijst = new WoordenLijst();
 			HangManUi hangman = new HangManUi(speler, woordenlijst);
 			hangman.play();
 		}
