@@ -1,6 +1,8 @@
 package domain;
 
-public abstract class Vorm {
+import java.awt.Canvas;
+
+public abstract class Vorm extends Canvas {
 
 	public abstract Omhullende getOmhullende();
 
