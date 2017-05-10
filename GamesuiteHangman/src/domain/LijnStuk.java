@@ -1,13 +1,18 @@
 package domain;
 
-public class LijnStuk extends Vorm //implements Drawable
-	{
+import java.awt.Graphics;
+
+public class LijnStuk extends Vorm implements Drawable{
 
 	private Punt start;
 	private Punt einde;
 	
 	public LijnStuk(Punt start, Punt einde) {
 		setStartEnEindPunt(start, einde);		
+	}
+	
+	public void Teken(Graphics g){
+		
 	}
 	
 	public void setStartEnEindPunt(Punt start, Punt einde) {

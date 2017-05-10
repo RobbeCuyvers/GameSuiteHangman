@@ -107,6 +107,6 @@ public class PictionaryUi {
 					JOptionPane.showMessageDialog(null, "Voer een geldig nummer in. ");
 				}
 			}
-
+		
 		}
 }

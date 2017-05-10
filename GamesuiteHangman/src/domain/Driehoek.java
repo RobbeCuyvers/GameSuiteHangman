@@ -1,8 +1,8 @@
 package domain;
 
+import java.awt.Graphics;
 
-public class Driehoek extends Vorm //implements Drawable
-{
+public class Driehoek extends Vorm implements Drawable{
 	
 	private Punt hoekpunt1;
 	private Punt hoekpunt2;
@@ -11,6 +11,10 @@ public class Driehoek extends Vorm //implements Drawable
 	
 	public Driehoek(Punt hoekpunt1, Punt hoekpunt2,Punt hoekpunt3){
 		setHoekpunten(hoekpunt1,hoekpunt2,hoekpunt3);
+	}
+	
+	public void Teken(Graphics g){
+		
 	}
 	
 	public void setHoekpunten(Punt hoekpunt1, Punt hoekpunt2,Punt hoekpunt3){

@@ -1,13 +1,19 @@
 package domain;
 
-public class Cirkel extends Vorm //implements Drawable
-{
+import java.awt.Graphics;
+
+public class Cirkel extends Vorm implements Drawable{
+	
 	private int radius;
 	private Punt middelpunt;
 	
 	public Cirkel(Punt middelPunt, int radius){
 		setMiddelpunt(middelPunt);
 		setRadius(radius);
+	}
+	
+	public void Teken(Graphics g){
+		
 	}
 
 	
