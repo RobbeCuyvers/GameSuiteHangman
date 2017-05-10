@@ -12,7 +12,7 @@ public class Cirkel extends Vorm implements Drawable{
 		setRadius(radius);
 	}
 	
-	public void Teken(Graphics g){
+	public void teken(Graphics g){
 		
 	}
 

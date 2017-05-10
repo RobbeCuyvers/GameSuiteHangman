@@ -6,9 +6,13 @@ public class Speler {
 	
 	
 	public Speler(String naam) {
+		setNaam(naam);
+	}
+
+
+	private void setNaam(String naam) {
 		if (naam == null || naam.trim().isEmpty()) throw new DomainException("naam mag niet null zijn");
 		this.naam = naam;
-		this.score = 0;
 	}
 
 
@@ -22,16 +26,11 @@ public class Speler {
 	}
 	
 	public void addToScore(int score){
-		
 		this.score += score;
 		if (this.score < 0) {
 			this.score-=score;
 			throw new DomainException("score mag niet 0 zijn");
-			
 		}
-		
-		
-		
 	}
 	
 	

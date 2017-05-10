@@ -13,7 +13,7 @@ public class Rechthoek extends Vorm implements Drawable{
 		this.setHoogte(hoogte);
 	}
 	
-	public void Teken(Graphics g){
+	public void teken(Graphics g){
 		
 	}
 

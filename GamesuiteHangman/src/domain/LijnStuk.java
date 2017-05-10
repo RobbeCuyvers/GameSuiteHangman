@@ -11,7 +11,7 @@ public class LijnStuk extends Vorm implements Drawable{
 		setStartEnEindPunt(start, einde);		
 	}
 	
-	public void Teken(Graphics g){
+	public void teken(Graphics g){
 		
 	}
 	
