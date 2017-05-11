@@ -22,6 +22,7 @@ public class WoordenLijst {
 	}
 
 	public String getRandomWoord() {
+		if(woorden.size()==0) throw new DomainException("Geen woorden beschikbaar");
 		int index = (int) Math.floor(Math.random() * (woorden.size() - 1));
 		return woorden.get(index);
 	}

@@ -22,9 +22,9 @@ public class HangManUi {
 		this.woordenlijst = woordenlijst;
 	}
 
-	public void play() {
+	public void play() {		
 		
-		Tekening tekening = new TekeningHangMan("Hangman");
+		TekeningHangMan tekening = new TekeningHangMan("Hangman");
 		GameHoofdScherm view = new GameHoofdScherm(speler.getNaam(), tekening);
 		view.setVisible(true);
 		view.teken();
@@ -46,9 +46,13 @@ public class HangManUi {
 
 				char letter = raad.toCharArray()[0];
 				begin = (woord.raad(letter) ? gelukt : mislukt);
+				if(begin.equals(mislukt)){
+					tekening.zetVolgendeZichtbaar();
+				}
 
 			}
-
+			
+			view = new GameHoofdScherm(speler.getNaam(), tekening);
 		} catch (DomainException e) {
 			JOptionPane.showMessageDialog(null, e.getMessage(), null, JOptionPane.ERROR_MESSAGE);
 
