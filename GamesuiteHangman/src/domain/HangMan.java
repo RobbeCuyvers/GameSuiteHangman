@@ -4,11 +4,12 @@ public class HangMan {
 	private Speler speler;
 	private HintWoord hintwoord;
 	private TekeningHangMan tekening;
+	private WoordenLijst woordenlijst;
 	
 	public HangMan(Speler speler, WoordenLijst woordenlijst){
 		setSpeler(speler);
 		if(woordenlijst==null) throw new DomainException("Ongeldige woordenlijst");
-		
+		this.woordenlijst = woordenlijst;
 		setTekening();
 		setHintWoord(woordenlijst);
 	}
@@ -50,7 +51,13 @@ public class HangMan {
 	}
 		
 	private void setHintWoord(WoordenLijst woordenlijst){
+		
 		this.hintwoord = new HintWoord(woordenlijst.getRandomWoord());
+	}
+	
+	public void resetGame(){
+		setHintWoord(woordenlijst);
+		tekening.reset();
 	}
 
 }

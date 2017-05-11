@@ -26,9 +26,12 @@ public class Launcher {
 		} else if (keuze.equals("Hangman")) {
 			WoordenLezer woordenLezer = new WoordenLezer("hangman.txt");
 			WoordenLijst woordenlijst = woordenLezer.lees();
-
-			HangManUi hangman = new HangManUi(speler, woordenlijst);
-			hangman.play();
+			HangMan spel = new HangMan(speler, woordenlijst);
+			HangmanPaneel spelpaneel = new HangmanPaneel(spel);
+			
+			//HangManUi hangman = new HangManUi(speler, woordenlijst);
+			HangManHoofdScherm hangman = new HangManHoofdScherm(spel, spelpaneel);
+			hangman.start();
 		}
 	}
 }
