@@ -15,6 +15,7 @@ public class WoordenLezer {
 		if(filename==null){
 			throw new DBException("Ongeldige filenaam.");
 		}
+		this.filename = filename;
 	}
 	
 	public WoordenLijst lees(){
