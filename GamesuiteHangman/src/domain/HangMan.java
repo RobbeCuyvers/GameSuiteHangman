@@ -63,5 +63,4 @@ public class HangMan {
 		setHintWoord(woordenlijst);
 		tekening.reset();
 	}
-
 }
