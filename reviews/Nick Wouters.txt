@@ -10,8 +10,8 @@ De commits zijn duidelijk, buiten als er een spatie verwijderd werd
 
 UML:
 
-De UML is goed gevolgt
-De structuur is gevolgt zoals het in de UML staat
+De UML is goed gevolgd
+De structuur is gevolgd zoals het in de UML staat
 Classes staan in de juiste packages
 De abstracte en interface classen zijn correct gebruikt
 De functionaliteit is goed overgenomen, soms wel iets aangepast om het te verbeteren / vergemakkelijken

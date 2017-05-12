@@ -62,7 +62,6 @@ public class HangMan {
 	}
 		
 	private void setHintWoord(WoordenLijst woordenlijst){
-		
 		this.hintwoord = new HintWoord(woordenlijst.getRandomWoord());
 	}
 	
