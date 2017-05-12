@@ -5,7 +5,6 @@ import javax.swing.JOptionPane;
 import domain.DomainException;
 import domain.HintWoord;
 import domain.Speler;
-import domain.Tekening;
 import domain.TekeningHangMan;
 import domain.WoordenLijst;
 
