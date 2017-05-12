@@ -33,9 +33,9 @@ public class Speler {
 	}
 
 	@Override
-	public boolean equals(Object object) {
-		if (object instanceof Speler) {
-			Speler s = (Speler) object;
+	public boolean equals(Object o) {
+		if (o instanceof Speler) {
+			Speler s = (Speler) o;
 			if (s.getNaam().equals(this.getNaam()) && s.getScore() == this.getScore())
 				return true;
 		}

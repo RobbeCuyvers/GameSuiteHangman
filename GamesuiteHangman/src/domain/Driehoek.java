@@ -29,6 +29,8 @@ public class Driehoek extends Vorm implements Drawable {
 	}
 
 	public void setHoekpunten(Punt hoekpunt1, Punt hoekpunt2, Punt hoekpunt3) {
+		//Hoekpunten worden aanvaard indien ze niet gelijk zijn of op 1 lijn liggen.
+		
 		if (hoekpunt1 == null || hoekpunt2 == null || hoekpunt3 == null) {
 			throw new DomainException("Ongeldig hoekpunt.");
 		}

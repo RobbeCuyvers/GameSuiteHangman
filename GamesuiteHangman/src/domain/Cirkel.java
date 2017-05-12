@@ -20,17 +20,6 @@ public class Cirkel extends Vorm implements Drawable {
 		return this.middelpunt;
 	}
 
-	@Override
-	public void teken(Graphics graphics) {
-		if (this.isZichtbaar()) {
-			Graphics2D graphics2D = (Graphics2D) graphics;
-			graphics2D.setStroke(new BasicStroke(5));
-
-			graphics.drawOval(this.getOmhullende().getMinX(), this.getOmhullende().getMinY(),
-					this.getOmhullende().getBreedte(), this.getOmhullende().getHoogte());
-		}
-	}
-
 	public void setMiddelpunt(Punt middelpunt) {
 		if (middelpunt == null) {
 			throw new DomainException("Middelpunt mag niet null zijn.");
@@ -82,6 +71,17 @@ public class Cirkel extends Vorm implements Drawable {
 		Omhullende o = new Omhullende(linkerBoven, 2 * radius, 2 * radius);
 
 		return o;
+	}
+	
+	@Override
+	public void teken(Graphics graphics) {
+		if (this.isZichtbaar()) {
+			Graphics2D graphics2D = (Graphics2D) graphics;
+			graphics2D.setStroke(new BasicStroke(5));
+
+			graphics.drawOval(this.getOmhullende().getMinX(), this.getOmhullende().getMinY(),
+					this.getOmhullende().getBreedte(), this.getOmhullende().getHoogte());
+		}
 	}
 
 }

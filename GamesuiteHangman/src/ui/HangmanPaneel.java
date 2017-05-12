@@ -5,6 +5,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
@@ -19,17 +20,18 @@ public class HangmanPaneel extends JPanel {
 	
 	private TekenVenster tekenVenster;
 	private HangMan spel;
+	private String titel;
 	
 	public HangmanPaneel(HangMan spel){
 		super();
 		setSpel(spel);
+		titel = spel.getSpeler().getNaam()+" - Hangman";
 		init();
 	}
 
 	private void init(){
 		letter = new JTextField("",5);
 		woord = new JLabel("");
-		
 		this.setLayout(new BorderLayout());
 		this.add(letter, BorderLayout.EAST);
 		this.add(woord, BorderLayout.CENTER);
@@ -38,8 +40,10 @@ public class HangmanPaneel extends JPanel {
 	}
 	
 	private void reset() {
+		spel.resetGame();
 		woord.setText(getSpel().getHint());
 		getTekenVenster().teken();
+		
 	}
 	
 	public class RaadLuisteraar implements KeyListener {
@@ -52,16 +56,21 @@ public class HangmanPaneel extends JPanel {
 				if(input.length() > 0){
 					guess = input.charAt(0);
 				}
-				//
 				spel.raad(guess);
 				woord.setText(getSpel().getHint());
 				letter.setText("");
 				getTekenVenster().teken();
 				
-				//TODO
-				//toon boodschap als gewonnen of verloren en vraag of speler opnieuw wilt spelen
-				//als de speler opnieuw wilt spelen: herzet het spel en het paneel
-				//anders stop (System.exit(0))
+				if(spel.isGewonnen()){
+					spel.getSpeler().addToScore(1);
+					JOptionPane.showConfirmDialog(null,"Proficiat, u heeft gewonnen!\nU heeft "+spel.getSpeler().getScore()+" punten", titel, JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE, null);
+					gameFinished();
+				}
+				else if(spel.isGameOver()){
+					JOptionPane.showConfirmDialog(null,"Helaas, u heeft verloren :/\nU heeft "+spel.getSpeler().getScore()+" punten", titel,JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE, null);
+					gameFinished();
+				}
+				
 				
 			}
 		}
@@ -90,4 +99,14 @@ public class HangmanPaneel extends JPanel {
 
 		reset();
 	}
+	 private void gameFinished(){
+		 int n = JOptionPane.showConfirmDialog(null, "Wilt u nog eens spelen?", titel, JOptionPane.YES_NO_OPTION);
+			if(n == JOptionPane.YES_OPTION){
+				reset();
+		      }
+		      else{
+		          System.exit(0);	
+		      }
+	 }
+
 }

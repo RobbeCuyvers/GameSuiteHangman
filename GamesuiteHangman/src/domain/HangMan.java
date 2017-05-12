@@ -4,18 +4,20 @@ public class HangMan {
 	private Speler speler;
 	private HintWoord hintwoord;
 	private TekeningHangMan tekening;
+	private WoordenLijst woordenlijst;
 	
 	public HangMan(Speler speler, WoordenLijst woordenlijst){
 		setSpeler(speler);
 		if(woordenlijst==null) throw new DomainException("Ongeldige woordenlijst");
-		
+		this.woordenlijst = woordenlijst;
 		setTekening();
 		setHintWoord(woordenlijst);
 	}
+	
 	public String getHint(){
-		
 		return this.hintwoord.toString();
 	}
+	
 	public Speler getSpeler(){
 		return speler;
 	}
@@ -36,21 +38,29 @@ public class HangMan {
 			tekening.zetVolgendeZichtbaar();
 		}
 	}
+	
 	public boolean isGameOver(){
 		//If aantal onzichtbaar == 0 -> return true anders false
 		return (tekening.getAantalOnzichtbaar()==0) ? true : false;
 	}
+	
 	public boolean isGewonnen(){
 		//Gewonnen is true als hintwoord geraden
 		return (hintwoord.isGeraden()) ? true: false;
 	}
+	
 	private void setSpeler(Speler speler) {
 		if(speler==null) throw new DomainException("Ongeldige Speler.");
 		this.speler = speler;
 	}
 		
 	private void setHintWoord(WoordenLijst woordenlijst){
+		
 		this.hintwoord = new HintWoord(woordenlijst.getRandomWoord());
 	}
-
+	
+	public void resetGame(){
+		setHintWoord(woordenlijst);
+		tekening.reset();
+	}
 }
