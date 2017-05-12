@@ -17,6 +17,7 @@ public class HangmanPaneel extends JPanel {
 	
 	private JTextField letter;	
 	private JLabel woord;
+	private JLabel alfabet;
 	
 	private TekenVenster tekenVenster;
 	private HangMan spel;
@@ -31,16 +32,18 @@ public class HangmanPaneel extends JPanel {
 
 	private void init(){
 		letter = new JTextField("",5);
+		alfabet = new JLabel("");
 		woord = new JLabel("");
 		this.setLayout(new BorderLayout());
+		this.add(alfabet, BorderLayout.NORTH);
 		this.add(letter, BorderLayout.EAST);
 		this.add(woord, BorderLayout.CENTER);
-		
 		letter.addKeyListener(new RaadLuisteraar());
 	}
 	
 	private void reset() {
 		spel.resetGame();
+		alfabet.setText("Geraden letters:"+getSpel().getAlfabet());
 		woord.setText(getSpel().getHint());
 		getTekenVenster().teken();
 		
@@ -57,17 +60,18 @@ public class HangmanPaneel extends JPanel {
 					guess = input.charAt(0);
 				}
 				spel.raad(guess);
+				alfabet.setText("Geraden letters: "+getSpel().getAlfabet());
 				woord.setText(getSpel().getHint());
 				letter.setText("");
 				getTekenVenster().teken();
 				
 				if(spel.isGewonnen()){
-					spel.getSpeler().addToScore(1);
+					spel.getSpeler().addToScore(spel.getTekening().getAantalOnzichtbaar());
 					JOptionPane.showConfirmDialog(null,"Proficiat, u heeft gewonnen!\nU heeft "+spel.getSpeler().getScore()+" punten", titel, JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE, null);
 					gameFinished();
 				}
 				else if(spel.isGameOver()){
-					JOptionPane.showConfirmDialog(null,"Helaas, u heeft verloren :/\nU heeft "+spel.getSpeler().getScore()+" punten", titel,JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE, null);
+					JOptionPane.showConfirmDialog(null,"Helaas, u heeft verloren :/\nHet woord was:"+spel.getWoord()+"\nU heeft "+spel.getSpeler().getScore()+" punten", titel,JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE, null);
 					gameFinished();
 				}
 				

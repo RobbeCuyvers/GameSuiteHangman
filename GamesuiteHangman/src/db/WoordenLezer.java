@@ -29,7 +29,7 @@ public class WoordenLezer {
 	
 	public ArrayList<String> readFile(){
 		
-		ArrayList<String> words = new ArrayList<String>();
+		ArrayList<String> words = new ArrayList<String>(41238);
 		File woordenFile = new File(filename);
 		
 		try{

@@ -13,10 +13,15 @@ public class HangMan {
 		this.woordenlijst = woordenlijst;
 		setTekening();
 		setHintWoord(woordenlijst);
+		setAlfabet();
 	}
 	
 	public String getHint(){
 		return this.hintwoord.toString();
+	}
+	
+	public String getWoord(){
+		return this.hintwoord.getWoord();
 	}
 	
 	public Speler getSpeler(){
@@ -35,6 +40,7 @@ public class HangMan {
 	
 	public void raad(char letter){
 		boolean gok = this.hintwoord.raad(letter);
+		this.alfabet.raad(letter);
 		if(gok==false){
 			tekening.zetVolgendeZichtbaar();
 		}
@@ -62,6 +68,17 @@ public class HangMan {
 	
 	public void resetGame(){
 		setHintWoord(woordenlijst);
+		setAlfabet();
 		tekening.reset();
+		
 	}
+	
+	private void setAlfabet(){
+		alfabet = new HintWoord("abcdefghijklmnopqrstuvwxyz");
+	}
+	
+	public String getAlfabet(){
+		return alfabet.toString();
+	}
+	
 }
