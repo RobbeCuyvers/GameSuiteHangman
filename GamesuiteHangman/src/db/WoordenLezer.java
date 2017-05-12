@@ -13,6 +13,7 @@ public class WoordenLezer {
 	
 	public WoordenLezer(String filename){
 		setFileNaam(filename);
+
 	}
 	
 	public WoordenLijst lees(){
