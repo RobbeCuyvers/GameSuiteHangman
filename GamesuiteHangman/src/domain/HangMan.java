@@ -5,6 +5,7 @@ public class HangMan {
 	private HintWoord hintwoord;
 	private TekeningHangMan tekening;
 	private WoordenLijst woordenlijst;
+	private HintWoord alfabet;
 	
 	public HangMan(Speler speler, WoordenLijst woordenlijst){
 		setSpeler(speler);
