@@ -6,10 +6,14 @@ public class HintLetter {
 	private char letter;
 
 	public HintLetter(char letter) {
+		setLetter(letter);
 
+	}
+
+	private void setLetter(char letter) {
 		this.letter = letter;
 		geraden = false;
-		if(letter == ' '){
+		if (letter == ' ' || letter == '-') {
 			geraden = true;
 		}
 	}
@@ -30,11 +34,8 @@ public class HintLetter {
 	}
 
 	public char toChar() {
-
-		if (geraden) {
-			return letter;
-		}
-		return '_';
+		// If geraden == true : return letter else '_'
+		return (geraden) ? letter : '_';
 
 	}
 

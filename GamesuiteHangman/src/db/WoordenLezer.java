@@ -12,9 +12,8 @@ public class WoordenLezer {
 	private String filename;
 	
 	public WoordenLezer(String filename){
-		if(filename==null){
-			throw new DBException("Ongeldige filenaam.");
-		}
+		setFileNaam(filename);
+
 	}
 	
 	public WoordenLijst lees(){
@@ -29,10 +28,10 @@ public class WoordenLezer {
 	}
 	
 	public ArrayList<String> readFile(){
-		ArrayList<String> words = new ArrayList<String>();
 		
-		//File woordenFile = new File(Paths.get("/Users/thomascorthouts/Documents/GitHub/GameSuiteHangman/GamesuiteHangman/bestanden/hangman.txt").toString());
-		File woordenFile = new File("hangman.txt");
+		ArrayList<String> words = new ArrayList<String>();
+		File woordenFile = new File(filename);
+		
 		try{
 			Scanner scannerFile = new Scanner(woordenFile);
 			while(scannerFile.hasNextLine()){
@@ -43,13 +42,22 @@ public class WoordenLezer {
 			}
 			scannerFile.close();
 		}
+		
 		catch(FileNotFoundException ex){
 			throw new DomainException("Fout bij het inlezen");
 		}
+		
 		return words;
 	}
 	
 	public String getFileName() {
 		return filename;
+	}
+	
+	private void setFileNaam(String filename){
+		if(filename==null){
+			throw new DBException("Ongeldige filenaam.");
+		}
+		this.filename = filename;
 	}
 }

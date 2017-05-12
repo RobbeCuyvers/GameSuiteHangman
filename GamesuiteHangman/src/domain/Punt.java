@@ -13,10 +13,8 @@ public class Punt {
 		return x;
 	}
 
-	public void setX(int x) {
-		if (x < 0) {
-			throw new DomainException("Het punt X moet een positief geheel getal zijn");
-		}
+	private void setX(int x) {
+
 		this.x = x;
 	}
 
@@ -24,10 +22,7 @@ public class Punt {
 		return y;
 	}
 
-	public void setY(int y) {
-		if (y < 0) {
-			throw new DomainException("Het punt Y moet een positief geheel getal zijn");
-		}
+	private void setY(int y) {
 		this.y = y;
 	}
 

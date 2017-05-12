@@ -8,6 +8,10 @@ public class HintWoord {
 	private List<HintLetter> hintLetters;
 
 	public HintWoord(String woord) {
+		setWoord(woord);
+	}
+	
+	private void setWoord(String woord){
 		if (woord == null || woord.trim().isEmpty()) {
 			throw new DomainException("Ongeldig woord.");
 		}
