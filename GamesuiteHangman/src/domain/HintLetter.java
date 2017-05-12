@@ -7,13 +7,13 @@ public class HintLetter {
 
 	public HintLetter(char letter) {
 		setLetter(letter);
-		
+
 	}
-	
-	private void setLetter(char letter){
+
+	private void setLetter(char letter) {
 		this.letter = letter;
 		geraden = false;
-		if(letter == ' '){
+		if (letter == ' ' || letter == '-') {
 			geraden = true;
 		}
 	}
@@ -34,7 +34,7 @@ public class HintLetter {
 	}
 
 	public char toChar() {
-		//If geraden == true : return letter else '_'
+		// If geraden == true : return letter else '_'
 		return (geraden) ? letter : '_';
 
 	}
