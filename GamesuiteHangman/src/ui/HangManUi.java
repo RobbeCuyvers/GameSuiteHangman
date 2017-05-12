@@ -40,46 +40,6 @@ public class HangManUi {
 		}
 		System.exit(0);
 		
-		/**TekeningHangMan tekening = new TekeningHangMan("Hangman");
-		
-		
-		GameHoofdScherm view = new GameHoofdScherm(speler.getNaam(), tekening);
-		view.setVisible(true);
-		
-		view.teken();
-		 
-		try {
-			HintWoord woord = new HintWoord(woordenlijst.getRandomWoord());
-			String begin = "";
-			String gelukt = "Super, doe zo voor!\n" + begin;
-			String mislukt = "Helaas, volgende keer beter!\n";
-
-			while (!woord.isGeraden()) {
-				String raad = "";
-				
-				do {
-					raad = JOptionPane.showInputDialog(null,
-							begin + "Rarara, welk woord zoeken we\n" + woord.toString() + "\nGeef een letter:",
-							"Hangman - " + speler.getNaam(), JOptionPane.INFORMATION_MESSAGE);
-				} while (raad.trim().isEmpty());
-
-				char letter = raad.toCharArray()[0];
-				begin = (woord.raad(letter) ? gelukt : mislukt);
-				if(begin.equals(mislukt)){
-					tekening.zetVolgendeZichtbaar();
-				}
-				view.repaint();
-				view.teken();
-			}
-			
-			
-		} catch (DomainException e) {
-			JOptionPane.showMessageDialog(null, e.getMessage(), null, JOptionPane.ERROR_MESSAGE);
-
-		} catch (NullPointerException e){
-			
-		}
-		*/
 		
 		
 

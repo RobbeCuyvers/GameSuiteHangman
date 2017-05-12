@@ -13,10 +13,11 @@ public class HangMan {
 		setTekening();
 		setHintWoord(woordenlijst);
 	}
+	
 	public String getHint(){
-		
 		return this.hintwoord.toString();
 	}
+	
 	public Speler getSpeler(){
 		return speler;
 	}
@@ -37,14 +38,17 @@ public class HangMan {
 			tekening.zetVolgendeZichtbaar();
 		}
 	}
+	
 	public boolean isGameOver(){
 		//If aantal onzichtbaar == 0 -> return true anders false
 		return (tekening.getAantalOnzichtbaar()==0) ? true : false;
 	}
+	
 	public boolean isGewonnen(){
 		//Gewonnen is true als hintwoord geraden
 		return (hintwoord.isGeraden()) ? true: false;
 	}
+	
 	private void setSpeler(Speler speler) {
 		if(speler==null) throw new DomainException("Ongeldige Speler.");
 		this.speler = speler;

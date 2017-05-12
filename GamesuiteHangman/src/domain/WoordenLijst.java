@@ -16,9 +16,10 @@ public class WoordenLijst {
 	}
 
 	public void voegToe(String woord){
-		if(woord==null||woord.trim().isEmpty()||woorden.contains(woord))
+		if(woord==null||woord.trim().isEmpty())
 			throw new DomainException("Woord mag niet leeg zijn.");
-		woorden.add(woord);
+		if(!woorden.contains(woord))
+			woorden.add(woord);
 	}
 
 	public String getRandomWoord() {

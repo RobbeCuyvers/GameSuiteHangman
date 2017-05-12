@@ -62,11 +62,12 @@ public class HangmanPaneel extends JPanel {
 				getTekenVenster().teken();
 				
 				if(spel.isGewonnen()){
-					JOptionPane.showConfirmDialog(null,"Proficiat, u heeft gewonnen!", titel, JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE, null);
+					spel.getSpeler().addToScore(1);
+					JOptionPane.showConfirmDialog(null,"Proficiat, u heeft gewonnen!\nU heeft "+spel.getSpeler().getScore()+" punten", titel, JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE, null);
 					gameFinished();
 				}
 				else if(spel.isGameOver()){
-					JOptionPane.showConfirmDialog(null,"Helaas, u heeft verloren :/", titel,JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE, null);
+					JOptionPane.showConfirmDialog(null,"Helaas, u heeft verloren :/\nU heeft "+spel.getSpeler().getScore()+" punten", titel,JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE, null);
 					gameFinished();
 				}
 				
